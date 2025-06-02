@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Viewer - Infinite Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="bookViewerPage" class="container">
+        <header class="book-header">
+            <a href="index.html" class="back-to-library">← Back to Library</a>
+            <h1 id="siteTitleSmall">Infinite Library</h1>
+            <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button>
+        </header>
+
+        <main class="book-layout">
+            <aside class="book-sidebar">
+                <div id="bookCover" class="book-cover">
+                    <h2 id="coverTitle" class="cover-title-on-cover"></h2>
+                    <p id="coverAuthor" class="cover-author-on-cover"></p>
+                    <div class="motif-container"></div>
+                </div>
+                <div class="book-meta">
+                    <h3 id="bookTitleMeta">Book Title</h3>
+                    <p id="authorNameMeta">by Author Name</p>
+                </div>
+                <button id="printBookBtn">Print / Save as PDF</button>
+            </aside>
+
+            <article class="book-content">
+                <h2 id="chapterTitle">Chapter Title</h2>
+                <div id="chapterText" class="chapter-text-content">
+                    <p>Loading chapter...</p>
+                </div>
+                <nav class="chapter-navigation">
+                    <button id="prevChapterBtn" disabled>« Previous Chapter</button>
+                    <span id="chapterIndicator">Chapter X of Y</span>
+                    <button id="nextChapterBtn">Next Chapter »</button>
+                </nav>
+            </article>
+        </main>
+        
+        <footer>
+            <p id="bookSeedInfo">Book Seed: </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+/* Global Styles & Variables */
+:root {
+    --primary-bg: #f4f1ea;
+    --primary-text: #333;
+    --accent-color: #8a6d46; /* Muted gold/brown */
+    --secondary-bg: #fff;
+    --border-color: #ddd;
+    --button-bg: var(--accent-color);
+    --button-text: #fff;
+    --button-hover-bg: #705635;
+    --header-bg: #e9e4d9;
+
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body.dark-mode {
+    --primary-bg: #2c2c2c;
+    --primary-text: #f0f0f0;
+    --accent-color: #c5a67c;
+    --secondary-bg: #3a3a3a;
+    --border-color: #555;
+    --button-bg: var(--accent-color);
+    --button-text: #222;
+    --button-hover-bg: #b09065;
+    --header-bg: #222222;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+    background-color: var(--header-bg);
+    padding: 15px 30px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    margin: 0;
+}
+
+#darkModeToggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--primary-text);
+}
+#darkModeToggle:hover {
+    background-color: var(--secondary-bg);
+}
+
+
+/* Index Page Specific Styles */
+.hero h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+.hero p {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 2em;
+    color: var(--primary-text);
+    opacity: 0.9;
+}
+
+.actions {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+#bookIdInput {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    width: 60%;
+    max-width: 400px;
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: var(--font-body);
+    font-weight: bold;
+}
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+body.dark-mode button:disabled {
+    background-color: #555;
+    color: #888;
+}
+
+
+.bookshelf-visual {
+    margin-top: 50px;
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+.bookshelf-visual h3 {
+    font-family: var(--font-heading);
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--accent-color);
+}
+.shelf {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align books to bottom of shelf */
+    height: 200px; /* Adjust as needed */
+    background-color: #a07c54; /* Wood color */
+    border: 5px solid #6b4f2f; /* Darker wood border */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.2);
+}
+body.dark-mode .shelf {
+    background-color: #594630;
+    border-color: #3d3021;
+}
+
+.book-spine {
+    width: 40px; /* Width of a book spine */
+    height: 160px; /* Height of a book */
+    background-color: var(--accent-color);
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl; /* Vertical text */
+    text-orientation: mixed;
+    color: white;
+    font-size: 0.8em;
+    font-family: var(--font-heading);
+    border-radius: 3px 3px 0 0;
+    box-shadow: -3px 0 5px rgba(0,0,0,0.2) inset, 2px 0 2px rgba(255,255,255,0.3) inset;
+    position: relative;
+    cursor: default; /* No action for these decorative spines */
+}
+.book-spine span {
+    transform: rotate(180deg); /* Correct orientation for vertical-rl */
+    white-space: nowrap;
+    padding: 5px;
+}
+/* Vary book spine colors and heights for visual interest */
+.shelf .book-spine:nth-child(odd) { height: 170px; background-color: #705635; }
+.shelf .book-spine:nth-child(3n) { height: 150px; background-color: #9c805b; }
+body.dark-mode .shelf .book-spine:nth-child(odd) { background-color: #4a3a26; }
+body.dark-mode .shelf .book-spine:nth-child(3n) { background-color: #6e5a41; }
+
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: var(--primary-text);
+    opacity: 0.7;
+}
+
+/* Book Page Specific Styles */
+.book-header {
+    padding: 10px 20px; /* Smaller padding for book page header */
+}
+#siteTitleSmall {
+    font-size: 1.5em; /* Smaller title for book page */
+}
+.back-to-library {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.back-to-library:hover {
+    text-decoration: underline;
+}
+
+.book-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.book-sidebar {
+    flex: 0 0 280px; /* Fixed width for sidebar */
+    position: sticky; /* Sticky sidebar */
+    top: 20px; /* Adjust based on header or other elements */
+    align-self: flex-start; /* Important for sticky positioning */
+}
+
+.book-cover {
+    width: 100%;
+    aspect-ratio: 2 / 3; /* Typical book cover aspect ratio */
+    background-color: #ccc; /* Placeholder */
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.cover-title-on-cover {
+    font-family: var(--font-heading);
+    font-size: 1.5em; /* Adjust based on cover size */
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+    max-width: 90%;
+}
+.cover-author-on-cover {
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    max-width: 90%;
+}
+/* Font family classes for cover, to be set by JS */
+.cover-font-serif .cover-title-on-cover { font-family: 'Merriweather', serif; }
+.cover-font-sans-serif .cover-title-on-cover { font-family: 'Lato', sans-serif; }
+.cover-font-monospace .cover-title-on-cover { font-family: 'Courier New', monospace; }
+
+.motif-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* So it doesn't interfere with text */
+}
+.motif {
+    opacity: 0.15; /* Motifs are subtle */
+}
+.motif-circle { width: 60%; height: 60%; border-radius: 50%; background-color: currentColor; }
+.motif-square { width: 50%; height: 50%; background-color: currentColor; }
+/* Triangle requires more CSS, e.g. borders */
+.motif-triangle {
+    width: 0; height: 0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 120px solid currentColor; /* Adjust size as needed */
+}
+
+
+.book-meta {
+    margin-top: 20px;
+    text-align: center;
+}
+#bookTitleMeta {
+    font-family: var(--font-heading);
+    font-size: 1.3em;
+    margin-bottom: 0.2em;
+}
+#authorNameMeta {
+    font-style: italic;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+#printBookBtn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+.book-content {
+    flex: 1; /* Takes remaining space */
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    min-height: 70vh; /* Ensure it has some height */
+}
+#chapterTitle {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5em;
+}
+.chapter-text-content p {
+    margin-bottom: 1.2em;
+    font-size: 1.05em; /* Slightly larger for readability */
+    text-align: justify;
+}
+
+.chapter-navigation {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+#chapterIndicator {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+#bookSeedInfo {
+    font-size: 0.8em;
+    word-break: break-all;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .book-layout {
+        flex-direction: column;
+    }
+    .book-sidebar {
+        flex: 0 0 auto; /* Allow sidebar to shrink */
+        width: 100%;
+        position: static; /* No longer sticky on small screens */
+        margin-bottom: 30px;
+    }
+    .book-cover {
+        max-width: 300px; /* Limit cover width on small screens */
+        margin: 0 auto; /* Center the cover */
+    }
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #bookIdInput {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+    .shelf {
+        flex-wrap: wrap; /* Allow book spines to wrap */
+        height: auto; /* Adjust height for wrapped content */
+        padding-bottom: 10px; /* Space for wrapped items */
+    }
+    .book-spine {
+        height: 120px; /* Smaller spines */
+        width: 30px;
+        font-size: 0.7em;
+    }
+    .shelf .book-spine:nth-child(odd) { height: 130px; }
+    .shelf .book-spine:nth-child(3n) { height: 110px; }
+
+    header { flex-direction: column; gap: 10px; }
+    .book-header { flex-direction: row; justify-content: space-between; align-items: center; } /* Keep book header row */
+    #siteTitleSmall { display: none; } /* Hide on small screens if too crowded */
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: #fff !important; /* Ensure white background */
+        color: #000 !important; /* Ensure black text */
+        font-size: 12pt; /* Standard print size */
+        font-family: 'Times New Roman', Times, serif; /* Common print font */
+    }
+    header, .book-sidebar, .chapter-navigation, footer, #darkModeToggle, #printBookBtn, .back-to-library, #siteTitleSmall {
+        display: none !important; /* Hide all non-content elements */
+    }
+    .container, .book-layout, .book-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        background-color: transparent !important;
+    }
+    .book-cover { /* Optionally print cover */
+        width: 80% !important; /* Adjust as needed */
+        margin: 0 auto 20px auto !important; /* Center and add margin */
+        page-break-after: always; /* Cover on its own page */
+        border: 1px solid #ccc; /* Simple border for print */
+    }
+    .cover-title-on-cover, .cover-author-on-cover {
+        color: #000 !important; /* Ensure text is visible on cover */
+    }
+    .book-meta { /* Display meta info before first chapter */
+        text-align: center;
+        margin-bottom: 20px;
+        page-break-after: avoid;
+    }
+    #bookTitleMeta, #authorNameMeta {
+        color: #000 !important;
+    }
+    #chapterTitle {
+        font-size: 18pt;
+        margin-top: 30px; /* Space before new chapter */
+        page-break-before: always; /* Each chapter on a new page */
+        page-break-after: avoid; /* Keep title with first paragraph */
+        border-bottom: 1px solid #000;
+    }
+    .chapter-text-content p {
+        font-size: 12pt;
+        line-height: 1.5;
+        orphans: 3; /* Minimum lines at bottom of page */
+        widows: 3; /* Minimum lines at top of page */
+        margin-bottom: 1em;
+    }
+    a { text-decoration: none; color: #000; } /* Remove link styling */
+    a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; } /* Show external links */
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="libraryHomepage" class="container">
+        <header>
+            <h1>Infinite Library</h1>
+            <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h2>Welcome to the Infinite Library</h2>
+                <p>Discover unique, procedurally generated books. Enter a title or ID, or generate a random one.</p>
+            </section>
+
+            <section class="actions">
+                <div class="search-container">
+                    <input type="text" id="bookIdInput" placeholder="Enter Book Title or Seed ID">
+                    <button id="goToBookBtn">Go to Book</button>
+                </div>
+                <button id="randomBookBtn">Explore a Random Book</button>
+            </section>
+
+            <section class="bookshelf-visual">
+                <h3>Featured Shelves</h3>
+                <div class="shelf">
+                    <div class="book-spine"><span>The Crimson Void</span></div>
+                    <div class="book-spine"><span>Echoes of Starlight</span></div>
+                    <div class="book-spine"><span>Code of the Ancients</span></div>
+                    <div class="book-spine"><span>Whispers in the Machine</span></div>
+                    <div class="book-spine"><span>Journey to Xylos</span></div>
+                </div>
+                <div class="shelf">
+                    <div class="book-spine"><span>The Last Algorithm</span></div>
+                    <div class="book-spine"><span>Secrets of Nebulae</span></div>
+                    <div class="book-spine"><span>Chronicles of the Seed</span></div>
+                    <div class="book-spine"><span>Beyond the Horizon</span></div>
+                    <div class="book-spine"><span>Aria's Gambit</span></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2023 Infinite Library. All books are procedurally generated.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
